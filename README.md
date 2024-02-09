@@ -1,9 +1,11 @@
-# Instagram Meme Bot
    ~~~ This program was created by TruFoox ~~~
 
 ***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
 If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts.
 
+To allow this python script to run, you must put this command into a command prompt window:
+pip install requests colorama pillow numpy
+Doing so will allow the program to do what is necessary to work. IF YOU DO NOT DO THIS, IT WILL NOT RUN.
 
 Open config.json and change these settings to your discretion:
 ** READ CAREFULLY **
