@@ -1,5 +1,6 @@
 # Instagram Meme Bot
-   --- This program was created by TruFoox ---
+   ~~~ Hello, welcome to my bot! ~~~
+ - CREATED BY TRUFOOX -
 
 ***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
 If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts.
