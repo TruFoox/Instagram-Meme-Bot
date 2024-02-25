@@ -50,7 +50,7 @@ Programmed entirely in python using the requests, colorama, pillow, and numpy li
 
 ## Getting Started
 
-Follow ALL the directions listed below in order for the bot to function correctly. See README.txt for more information regarding the config.
+Follow ALL the directions listed below in order for the bot to function correctly. See "AboutTheConfig.txt" for more information regarding the config.
 
 ### Prerequisites
 
