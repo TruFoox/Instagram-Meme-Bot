@@ -1,8 +1,11 @@
 {
     "Time_to_Wait": 30,
 	"Subreddits": ["memes","meme"],
-	"Subreddit_Weights": [2,1],
-	"Blacklist": ["reddit","r/","karma","upvote","downvote","updoot","downdoot","nsfw"],
+	"Subreddit_Weights": [3,2],
+	"Blacklist": ["reddit","r/","karma","upvote","downvote","updoot","downdoot","nsfw","nigga","sex","dick","pussy","selfie"],
 	"NSFW_Allowed": "False",
-	"API_Key": ""
+	"API_Key": "EAAFVH9vk708BO25vBx5wxtAavvLGkVDXev9KbSuOBovjqFYCKQCrSEHBaoKUXnXTTNnKlyEM1kfVWUx0ZClKPcZA0Tx92YECMAMXCxuOeCsbIEqInZCzXE0yH0ygpcAjSAPS4V4UTk0W1dLJa9TudZA5gG5dYabCJN4jRoEmkLqX3myIFxqNQ7Ju",
+	"User_ID": "17841463456260568",
+	"Caption": "Follow for more MEMES EVERY 30 MINUTES, 365 days per year! #meme #memes #funny #dankmemes #memesdaily #funnymemes #lol #humor #follow #dank #love #like #memepage #comedy #instagram #dankmeme #tiktok #anime #lmao #dailymemes #edgymemes #fun #ol #offensivememes #memestagram #bhfyp #funnymeme #instagood #shitpost #memer",
+	"Debug_Mode": "False"
 }
