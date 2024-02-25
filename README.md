@@ -31,7 +31,7 @@
 
 ## About The Project
 
-This is a simple, lightweight, yet powerful meme-posting bot for instagram, with LOADS of features, and more to come! This bot works by grabbing memes off of various configurable subreddits.
+This is a simple, lightweight, yet powerful meme-posting bot for instagram, with LOADS of features, and more to come! This bot works by grabbing memes off of various configurable subreddits using the D3vd's "Meme API".
 
 Current features:
 * NSFW filter
@@ -102,4 +102,9 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Authors
 
-* **Landen Laflamme** - *Student, Developer* - [Landen Laflamme](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
+* **Landen Laflamme** - *Developer* - [Landen Laflamme](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
+* **Dev Daksan** - *Creator of Meme API* - [D3vd](https://github.com/D3vd) - *Created the Meme API, which simplified programming this bot by a lot by creating an easy way to grab images off Reddit!*
+
+## Acknowledgements
+
+* [D3vd](https://github.com/D3vd)
