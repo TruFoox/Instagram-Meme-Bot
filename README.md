@@ -4,13 +4,14 @@
 
 ***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
 If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts.
-
-To allow this python script to run, you must put this command into a command prompt window:
+ !! Python 3 MUST be installed PRIOR to doing anything following this point !!
+To allow this python script to run, you MUST put this command into a command prompt window:
 pip install requests colorama pillow numpy
-Doing so will allow the program to do what is necessary to work. IF YOU DO NOT DO THIS, IT WILL NOT RUN.
+Doing so will allow the program to do what is necessary to work.
+ !! IF YOU DO NOT DO THIS, IT WILL NOT RUN. !!
 
 Open config.json and change these settings to your discretion:
-** READ CAREFULLY **
+** READ CAREFULLY. MANDATORY CHANGES WILL BE SURROUNDED BY ASTERISKS, LIKE THIS**
 
 
  - Time_to_Wait -
@@ -39,10 +40,25 @@ This setting is a list of all words that must not be in a post's caption in orde
  - NSFW_Allowed - 
 
 This setting is self-explanitory. Set to either "True" or "False" depending on whether or not you want to allow the bot to post NSFW.
-** HIGHLY RECOMMENDED THAT YOU KEEP AT FALSE & AVOID SUBREDDITS WITH FREQUENT UNMARKED NSFW; NSFW IS AGAINST INSTAGRAM TOS **
+HIGHLY RECOMMENDED THAT YOU KEEP AT FALSE & AVOID SUBREDDITS WITH FREQUENT UNMARKED NSFW; NSFW IS AGAINST INSTAGRAM TOS
 
- - API_Key -
-Go to this url and input your temporary API key:
+
+*** - API_Key - ***
+1. Go to this URL to generate an access token:
+https://developers.facebook.com/tools/explorer/
+2. Press the blue "Generate Access Token" button. It will ask you to log in to your facebook account, which is required. Make sure you log into whichever account owns the Instagram account you intend to use.
+3. Go to this url and input the access token you just generated:
 https://developers.facebook.com/tools/debug/accesstoken
-After you do that, press the blue "Debug" button. After the new webpage loads, scroll down to the bottom and press "Extend Access Token"
-This will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of the config
+4. Press the blue "Debug" button. After the new webpage loads, scroll down to the bottom and press "Extend Access Token"
+5. It will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of the config
+
+
+*** - User_ID - ***
+This setting should be changed to the account's User ID.
+
+ - Caption -
+This setting allows you to set the caption for every post. If you want to use hashtags, put them here.
+
+
+ - Debug_Mode -
+This setting is generally not for consumer usage. This is entirely for debugging (Finding errors in the code), and you should keep it as "False" if you do not want the console to be flooded with unnecessary data.
