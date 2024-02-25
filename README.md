@@ -1,64 +1,116 @@
-# Instagram Meme Bot
-   ~~~ Hello, welcome to my bot! ~~~
- - CREATED BY TRUFOOX -
+<br/>
+<p align="center">
+  <a href="https://github.com/TruFoox/Instagram-Meme-Bot">
+    <img src="logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
-If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts.
- !! Python 3 MUST be installed PRIOR to doing anything following this point !!
-To allow this python script to run, you MUST put this command into a command prompt window:
+  <h3 align="center">Instagram Meme Bot</h3>
+
+  <p align="center">
+    An Automated Meme-Posting Bot for Instagram!
+    <br/>
+    <br/>
+    <a href="https://github.com/TruFoox/Instagram-Meme-Bot"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    <a href="https://github.com/TruFoox/Instagram-Meme-Bot">View Demo</a>
+    .
+    <a href="https://github.com/TruFoox/Instagram-Meme-Bot/issues">Report Bug</a>
+    .
+    <a href="https://github.com/TruFoox/Instagram-Meme-Bot/issues">Request Feature</a>
+  </p>
+</p>
+
+![Downloads](https://img.shields.io/github/downloads/TruFoox/Instagram-Meme-Bot/total) ![Stargazers](https://img.shields.io/github/stars/TruFoox/Instagram-Meme-Bot?style=social) ![Issues](https://img.shields.io/github/issues/TruFoox/Instagram-Meme-Bot) 
+
+## Table Of Contents
+
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
+
+## About The Project
+
+This is a simple, lightweight, yet powerful meme-posting bot for instagram, with LOADS of features, and more to come! This bot works by grabbing memes off of various configurable subreddits.
+
+Current features:
+* NSFW filter
+* Configurable subreddits
+* Customizable caption/hashtags
+* Customizable wait times between posts
+* Word blacklist
+* Duplicate post prevention
+* Automatic error detection
+
+## Built With
+
+Programmed entirely in python using the requests, colorama, pillow, and numpy libraries
+
+## Getting Started
+
+Follow ALL the directions listed below in order for the bot to function correctly
+
+### Prerequisites
+
+Before anything, you need to have Python 3 downloaded and installed. [You can download the latest version of Python here](https://www.python.org/downloads/)
+This program uses a few libraries that might require you to download them if you haven't used them before
+
+* requests
+* colorama
+* pillow
+* numpy
+
+Use this command in the command prompt to download all of the requirements:
+```sh
 pip install requests colorama pillow numpy
-Doing so will allow the program to do what is necessary to work.
- !! IF YOU DO NOT DO THIS, IT WILL NOT RUN. !!
+```
 
-Open config.json and change these settings to your discretion:
-** READ CAREFULLY. MANDATORY CHANGES WILL BE SURROUNDED BY ASTERISKS, LIKE THIS**
+### Installation
 
+1. Go to [this URL](https://developers.facebook.com/tools/explorer/)
+  
+2. Press the blue "Generate Access Token" button. It will ask you to log in to your Facebook account, which is required. Make sure you log into whichever Facebook account owns the Instagram account you intend to use.
 
- - Time_to_Wait -
+3. Go to [this URL](https://developers.facebook.com/tools/debug/accesstoken) and input the access token you just generated
 
-This setting is the amount of time the bot should wait before attempting another post, in minutes. Lower numbers will lead to a buildup of duplicate posts, and thus worse efficiency, faster. THIS MUST BE AN INTEGER <60.
-
-
- - Subreddits -
-
-This setting is a list of all subreddits that the bot should retrieve top posts from. Make sure each subreddit is in quotes and seperated by a comma
-
-
- - Subreddit_Weights -
-
-This setting is the odds of any given subreddit in the list being chosen to grab a post from. This setting is useful if different subreddits in the list are posted to at different rates (and thus you may get more duplicates faster for some subreddits than others) or if you simply want to post from certain subreddits more than others. Each index in the list corresponds to the same index in the "Subreddits" list.
-For example, if your Subreddits list looks like ["me_irl","memes"] and your Subreddit_Weights list looks like [10,4], there will be a 10/14 chance r/me_irl will be picked, and a 4/14 chance r/memes will be picked (the divisor is 14 because the combined total of all the numbers in Subreddit_Weights is 14).
-These numbers can be as high or as low are you want, but it must be above 0 (otherwise there will be a 0% chance of it being picked). Make sure the indexes of each weight DIRECTLY corresponds to the index of the subreddit you want it to apply to. If you want an equal chance for all subreddits, set them all to the same number.
-DO NOT PUT MORE OR LESS WEIGHTS IN THE LIST THAN SUBREDDITS. THERE MUST BE AN EQUAL AMOUNT IN BOTH LISTS
-
-
- - Blacklist -
-
-This setting is a list of all words that must not be in a post's caption in order for it to be picked. For example, if your Blacklist looks like ["skibidi","fortnite","sus"], posts containing any item in the list inside its caption can not be picked.
-
-
- - NSFW_Allowed - 
-
-This setting is self-explanitory. Set to either "True" or "False" depending on whether or not you want to allow the bot to post NSFW.
-HIGHLY RECOMMENDED THAT YOU KEEP AT FALSE & AVOID SUBREDDITS WITH FREQUENT UNMARKED NSFW; NSFW IS AGAINST INSTAGRAM TOS
-
-
-*** - API_Key - ***
-1. Go to this URL to generate an access token:
-https://developers.facebook.com/tools/explorer/
-2. Press the blue "Generate Access Token" button. It will ask you to log in to your facebook account, which is required. Make sure you log into whichever account owns the Instagram account you intend to use.
-3. Go to this url and input the access token you just generated:
-https://developers.facebook.com/tools/debug/accesstoken
 4. Press the blue "Debug" button. After the new webpage loads, scroll down to the bottom and press "Extend Access Token"
-5. It will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of the config
 
+5. It will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of the config:
+```py
+"API_Key": "API KEY HERE",
+```
 
-*** - User_ID - ***
-This setting should be changed to the account's User ID.
+## Usage
 
- - Caption -
-This setting allows you to set the caption for every post. If you want to use hashtags, put them here.
+While the bot runs, YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS! If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by only choosing from subreddits with decent moderation.
 
+## Roadmap
 
- - Debug_Mode -
-This setting is generally not for consumer usage. This is entirely for debugging (Finding errors in the code), and you should keep it as "False" if you do not want the console to be flooded with unnecessary data.
+See the [open issues](https://github.com/TruFoox/Instagram-Meme-Bot/issues) for a list of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/TruFoox/Instagram-Meme-Bot/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* Please make sure you check your spelling and grammar.
+* Create individual PR for each suggestion.
+* Please also read through the [Code Of Conduct](https://github.com/TruFoox/Instagram-Meme-Bot/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
+
+### Creating A Pull Request
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Authors
+
+* **Landen Laflamme** - *Student, Developer* - [Landen Laflamme](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
