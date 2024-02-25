@@ -86,10 +86,6 @@ pip install requests colorama pillow numpy
 
 While the bot runs, YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS! If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by only choosing from subreddits with decent moderation.
 
-## Roadmap
-
-See the [open issues](https://github.com/TruFoox/Instagram-Meme-Bot/issues) for a list of proposed features (and known issues).
-
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
