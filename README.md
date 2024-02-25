@@ -75,8 +75,8 @@ pip install requests colorama pillow numpy
 
 4. Press the blue "Debug" button. After the new webpage loads, scroll down to the bottom and press "Extend Access Token"
 
-5. It will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of the config:
-```py
+5. It will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of config.json:
+```json
 "API_Key": "API KEY HERE",
 ```
 
