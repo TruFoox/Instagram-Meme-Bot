@@ -10,8 +10,6 @@
     An Automated Meme-Posting Bot for Instagram!
     <br/>
     <br/>
-    <a href="https://github.com/TruFoox/Instagram-Meme-Bot"><strong>Explore the docs »</strong></a>
-    <br/>
     <br/>
     <a href="https://github.com/TruFoox/Instagram-Meme-Bot/issues">Report Bug</a>
     .
