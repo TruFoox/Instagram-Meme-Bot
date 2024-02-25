@@ -16,14 +16,15 @@ with open("config.json", "r") as infile:
     blacklist = config["Blacklist"]
     nsfwAllowed = config["NSFW_Allowed"]
     access_token = config["API_Key"]
+    user_id = config["User_ID"]
+    caption = config["Caption"]
+    debug = config["Debug_Mode"]
     
 media_url = ""
 countattempt = 0
 totalcountattempt = 0
 countsuccess = 0
 chosenSubreddit = ""
-caption = "#meme #memes #funny #dankmemes #memesdaily #funnymemes #lol #humor #follow #dank #love #like #memepage #comedy #instagram #dankmeme #tiktok #anime #lmao #dailymemes #edgymemes #fun #ol #offensivememes #memestagram #bhfyp #funnymeme #instagood #shitpost #memer"
-user_id = "17841463456260568"
 currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 upload_url = f"https://graph.facebook.com/v18.0/{user_id}/media"
 publish_url = f"https://graph.facebook.com/v18.0/{user_id}/media_publish"
@@ -72,6 +73,8 @@ while True:
                 countattempt += 1
                 totalcountattempt += 1
                 response = requests.get(api_url, headers={'User-Agent': 'Mozilla/5.0'})
+                if debug == "True":
+                    print(f"Response: {response.json()}")
                 if response.status_code == 200:
                     if countattempt < 50:
                         post_data = response.json()
@@ -105,7 +108,7 @@ while True:
                             delete_previous_line()
                             print(Fore.RED + f"The image is marked as NSFW. Trying again... x{countattempt}", flush=True)
                     else:
-                        print(Fore.RED + f"An ERROR is causing a loop - Fix may require reopening this program or waiting for more posts to become available...", flush=True)
+                        print(Fore.RED + f"Something is causing a loop - Fix may require reopening this program or waiting for more posts... r/{subreddit}", flush=True)
                         return ""
                 else:
                     delete_previous_line()
@@ -126,10 +129,14 @@ while True:
             test_if_close_attempt = 1/countattempt
             if "error" in upload_json:
                 delete_previous_line()
+                if debug == "True":
+                    print(upload_json)
                 print(Fore.RED + f"Error: {upload_json['error']['message']}")
                 print(Fore.RED + f"Error URL: {media_url}")
             else:
                 delete_previous_line()
+                if debug == "True":
+                    print(upload_json)
                 print(Fore.GREEN + f"Post {media_url} from r/{chosenSubreddit} SUCCESSFULLY uploaded - {countattempt} Attempt(s) - {math.ceil((countsuccess/totalcountattempt)*1000)/10}% Success Rate")
                 print("")
                 if "id" in upload_json:
