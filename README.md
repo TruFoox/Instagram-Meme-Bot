@@ -13,8 +13,6 @@
     <a href="https://github.com/TruFoox/Instagram-Meme-Bot"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/TruFoox/Instagram-Meme-Bot">View Demo</a>
-    .
     <a href="https://github.com/TruFoox/Instagram-Meme-Bot/issues">Report Bug</a>
     .
     <a href="https://github.com/TruFoox/Instagram-Meme-Bot/issues">Request Feature</a>
