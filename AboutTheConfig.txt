@@ -53,8 +53,21 @@ https://developers.facebook.com/tools/debug/accesstoken
 *** - User_ID - ***
 This setting should be changed to the account's User ID.
 
- - Caption -
-This setting allows you to set the caption for every post. If you want to use hashtags, put them here.
+
+- Use_Post_Caption -
+Set this to True or False. This enables or disables using the reddit post's caption. If disabled, it will always use the fallback caption
+
+
+- Post_Caption_Criteria -
+Add any words you dont want included in the posts caption, and if they are included it will default to the fallback caption. This is similar to the blacklist, except it does not outright block the post entirely if it contains any keywords.
+
+
+- Fallback_Caption -
+This setting allows you to set the caption for every post/posts whose captions dont meet the criteria.
+
+
+- Hashtags -
+If you want to use hashtags, put them here. You could also place things here that you want to come after the normal caption (Such as @'s).
 
 
  - Debug_Mode -
