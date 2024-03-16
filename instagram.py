@@ -17,15 +17,18 @@ with open("config.json", "r") as infile:
     nsfwAllowed = config["NSFW_Allowed"]
     access_token = config["API_Key"]
     user_id = config["User_ID"]
-    caption = config["Caption"]
+    defaultCaption = config["Use_Post_Caption"]
+    captionCriteria = config["Post_Caption_Criteria"]
+    caption = config["Fallback_Caption"]
+    hashtags = config["Hashtags"]
     debug = config["Debug_Mode"]
     
 media_url = ""
 countattempt = 0
 totalcountattempt = 0
 countsuccess = 0
+postCaption = ""
 chosenSubreddit = ""
-currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 upload_url = f"https://graph.facebook.com/v18.0/{user_id}/media"
 publish_url = f"https://graph.facebook.com/v18.0/{user_id}/media_publish"
 tempList = []
@@ -54,6 +57,7 @@ def delete_previous_line():
     sys.stdout.write('\x1b[1A')
     sys.stdout.write('\x1b[2K') 
 
+currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 print(f'Client started - {currentTime}')
 print("")
 while True:
@@ -67,6 +71,7 @@ while True:
             global countattempt
             global totalcountattempt
             global subreddits
+            global postCaption
             global blacklist
             global chosenSubreddit
             while True:
@@ -80,13 +85,13 @@ while True:
                         post_data = response.json()
                         nsfw = post_data.get("nsfw", False)
                         image_url = post_data.get("url", api_url)
-                        caption_image = post_data.get("url", caption)
+                        postCaption = post_data.get("title")
                         print(Fore.WHITE + f"The image URL is: {image_url}", end='\r')
                         if nsfwAllowed == "True" or not nsfw:
                             if image_shape(image_url):
                                 if not ".gif" in image_url:
                                     if not image_url in images:
-                                        if not any(item.lower() in caption_image.lower() for item in blacklist):
+                                        if not any(item.lower() in postCaption.lower() for item in blacklist):
                                             images.append(image_url)
                                             with open("used_images.json", "w") as outfile:
                                                 json.dump(images, outfile)
@@ -118,11 +123,18 @@ while True:
         api_url = f"https://meme-api.com/gimme/{chosenSubreddit}"
         media_url = get_random_image_url(api_url)
         if not media_url == "":
-            upload_data = {
+            if defaultCaption == "False" or any(item.lower() in postCaption.lower() for item in captionCriteria):
+                upload_data = {
+                    "image_url": media_url,
+                    "caption": caption + " " + hashtags,
+                    "access_token": access_token
+                }
+            else:
+                upload_data = {
                 "image_url": media_url,
-                "caption": caption,
+                "caption": postCaption + " " + hashtags,
                 "access_token": access_token
-            }
+                }
             upload_response = requests.post(upload_url, params=upload_data)
             upload_json = upload_response.json()
             print(Fore.WHITE)
@@ -137,7 +149,7 @@ while True:
                 delete_previous_line()
                 if debug == "True":
                     print(upload_json)
-                print(Fore.GREEN + f"Post {media_url} from r/{chosenSubreddit} SUCCESSFULLY uploaded - {countattempt} Attempt(s) - {math.ceil((countsuccess/totalcountattempt)*1000)/10}% Success Rate")
+                print(Fore.GREEN + f"{datetime.now().strftime('%H:%M')} - {media_url} from r/{chosenSubreddit} SUCCESSFULLY uploaded - {countattempt} Attempt(s) - {math.ceil((countsuccess/totalcountattempt)*1000)/10}% Success Rate")
                 print("")
                 if "id" in upload_json:
                     creation_id = upload_json["id"]
@@ -149,5 +161,5 @@ while True:
                     publish_response = requests.post(publish_url, params=publish_data)
                     publish_json = publish_response.json()
     except:
-        print(Fore.RED + "CRITICAL ERROR - Whoops, something is wrong! - Please check your config (Check readme.txt)")
+        print(Fore.RED + "CRITICAL ERROR - Whoops, something is wrong! - Please check your config (Check AboutTheConfig.txt)")
         input("Press Enter to exit...")
