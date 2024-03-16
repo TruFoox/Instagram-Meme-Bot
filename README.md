@@ -82,7 +82,8 @@ pip install requests colorama pillow numpy
 
 ## Usage
 
-While the bot runs, YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS! If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by only choosing from subreddits with decent moderation.
+This bot generally requires zero input from the user while it is running, but YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS!
+If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by only choosing from subreddits with decent moderation.
 
 ## Contributing
 
