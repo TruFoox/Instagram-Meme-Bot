@@ -44,7 +44,7 @@ Current features:
 
 ## Built With
 
-Programmed entirely in python using the requests, colorama, pillow, and numpy libraries
+Programmed entirely in Python3 using the Requests, Colorama, Pillow, and Numpy libraries
 
 ## Getting Started
 
