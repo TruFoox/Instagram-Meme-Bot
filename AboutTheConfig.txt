@@ -1,24 +1,24 @@
 
 ***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
-If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts.
- !! Python 3 MUST be installed PRIOR to doing anything following this point !!
+If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts. 
+ !! Any version of Python 3 MUST be installed PRIOR to doing anything following this point !!
 To allow this python script to run, you MUST put this command into a command prompt window:
 pip install requests colorama pillow numpy
 Doing so will allow the program to do what is necessary to work.
  !! IF YOU DO NOT DO THIS, IT WILL NOT RUN. !!
 
 Open config.json and change these settings to your discretion:
-** READ CAREFULLY. MANDATORY CHANGES WILL BE SURROUNDED BY ASTERISKS, LIKE THIS**
+*** READ CAREFULLY. MANDATORY CHANGES WILL BE SURROUNDED BY ASTERISKS, LIKE THIS ***
 
 
  - Time_to_Wait -
 
-This setting is the amount of time the bot should wait before attempting another post, in minutes. Lower numbers will lead to a buildup of duplicate posts, and thus worse efficiency, faster. THIS MUST BE AN INTEGER <60.
+This setting is the amount of time the bot should wait before attempting another post, in minutes. Lower numbers will lead to a buildup of duplicate posts, and thus worse efficiency, faster (however this problem can be mitigated by using a large amount of subreddits with high post frequency).
 
 
  - Subreddits -
 
-This setting is a list of all subreddits that the bot should retrieve top posts from. Make sure each subreddit is in quotes and seperated by a comma
+This setting is a list of all subreddits that the bot should retrieve top posts from. Make sure each subreddit is in quotes and seperated by a comma. Not case sensitive.
 
 
  - Subreddit_Weights -
@@ -31,12 +31,12 @@ DO NOT PUT MORE OR LESS WEIGHTS IN THE LIST THAN SUBREDDITS. THERE MUST BE AN EQ
 
  - Blacklist -
 
-This setting is a list of all words that must not be in a post's caption in order for it to be picked. For example, if your Blacklist looks like ["skibidi","fortnite","sus"], posts containing any item in the list inside its caption can not be picked.
+This setting is a list of all words that must not be in a post's caption in order for it to be picked. For example, if your Blacklist looks like ["skibidi","fortnite","sus"], posts containing any item in the list inside its caption can not be picked. Not case sensitive.
 
 
  - NSFW_Allowed - 
 
-This setting is self-explanitory. Set to either "True" or "False" depending on whether or not you want to allow the bot to post NSFW.
+This setting is self-explanitory. Set to either "True" or "False" depending on whether or not you want to allow the bot to post images marked as NSFW.
 HIGHLY RECOMMENDED THAT YOU KEEP AT FALSE & AVOID SUBREDDITS WITH FREQUENT UNMARKED NSFW; NSFW IS AGAINST INSTAGRAM TOS
 
 
@@ -55,15 +55,15 @@ This setting should be changed to the account's User ID.
 
 
 - Use_Post_Caption -
-Set this to True or False. This enables or disables using the reddit post's caption. If disabled, it will always use the fallback caption
+Set this to "True" or "False". This enables or disables using the Reddit post's caption. If disabled, it will always use the fallback caption.
 
 
-- Post_Caption_Criteria -
-Add any words you dont want included in the posts caption, and if they are included it will default to the fallback caption. This is similar to the blacklist, except it does not outright block the post entirely if it contains any keywords.
+- Post_Caption_Blacklist -
+This setting allows you to set any words you dont want included in the post's caption, and if they are included it will default to the fallback caption. This is similar to the blacklist, except it does not outright block the post entirely if it contains any keywords. Not case sensitive.
 
 
 - Fallback_Caption -
-This setting allows you to set the caption for every post/posts whose captions dont meet the criteria.
+This setting allows you to set the caption for every post/posts whose captions dont meet the criteria of Post_Caption_Blacklist, depending on whether or not you have Use_Post_Caption set to True or False
 
 
 - Hashtags -
@@ -71,4 +71,4 @@ If you want to use hashtags, put them here. You could also place things here tha
 
 
  - Debug_Mode -
-This setting is generally not for consumer usage. This is entirely for debugging (Finding errors in the code), and you should keep it as "False" if you do not want the console to be flooded with unnecessary data.
+This setting is generally not for consumer usage. This is entirely for debugging (Finding errors in the code), and you should keep it as "False" if you do not want the console to be flooded with unnecessary data. If set to "True", it will print the json output for all API calls.
