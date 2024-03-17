@@ -104,7 +104,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Authors
 
-* **Landen Laflamme** - *Developer* - [Landen Laflamme](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
+* **Landen Laflamme** - *Developer* - [TruFoox](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
 * **Dev Daksan** - *Creator of Meme API* - [D3vd](https://github.com/D3vd) - *Created the Meme API, which simplified programming this bot by a lot by creating an easy way to grab images off Reddit!*
 
 ## Acknowledgements
