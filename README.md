@@ -34,7 +34,7 @@
 
 This is a simple, lightweight, yet powerful meme-posting bot for instagram, with LOADS of features, and more to come! This bot works by grabbing memes off of various configurable subreddits using the D3vd's [Meme API](https://github.com/D3vd/Meme_Api).
 
-Current features:
+A few of our currently available features:
 * NSFW filter
 * Configurable subreddits
 * Prioritize some subreddits over others
