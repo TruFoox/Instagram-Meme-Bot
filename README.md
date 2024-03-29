@@ -37,11 +37,12 @@ This is a simple, lightweight, yet powerful meme-posting bot for instagram, with
 Current features:
 * NSFW filter
 * Configurable subreddits
+* Prioritize some subreddits over others
 * Customizable caption/hashtags
 * Customizable wait times between posts
 * Word blacklist
 * Duplicate post prevention
-* Automatic error detection
+* Simple setup
 
 ## Built With
 
