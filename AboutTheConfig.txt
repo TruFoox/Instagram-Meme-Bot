@@ -59,7 +59,7 @@ Set this to "True" or "False". This enables or disables using the Reddit post's 
 
 
 - Post_Caption_Blacklist -
-This setting allows you to set any words you dont want included in the post's caption, and if they are included it will default to the fallback caption. This is similar to the blacklist, except it does not outright block the post entirely if it contains any keywords. Not case sensitive.
+This setting allows you to set any words you dont want included in the post's caption, and if they are included it will default to the fallback caption. This is similar to the blacklist, except it does not outright block the post entirely if it contains any keywords. It is recommended that you fill this with pronouns (Such as "I","I'm","I've") in order to prevent the bot from making claims about itself that are not true (For instance, "I had a pet bird just like this one" on a meme about birds). Not case sensitive.
 
 
 - Fallback_Caption -
