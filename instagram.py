@@ -1,12 +1,15 @@
-import requests, datetime, time, json, sys, math, random
+import requests, datetime, time, json, sys, math, random, os
 from colorama import Fore, Back, Style
 from PIL import Image
 from io import BytesIO
 from datetime import datetime
 
+print("")
+cwd = os.getcwd()
+storageSize = os.path.getsize(f'{cwd}\\used_images.json')
 with open("used_images.json", "r") as infile:
     images = json.load(infile)
-    print(f"{len(images)} previous URLS in storage")
+    print(f"{len(images)} used URLs in storage ({math.floor(storageSize/1000)}kb)")
 
 with open("config.json", "r") as infile:
     config = json.load(infile)
@@ -18,7 +21,7 @@ with open("config.json", "r") as infile:
     access_token = config["API_Key"]
     user_id = config["User_ID"]
     defaultCaption = config["Use_Post_Caption"]
-    captionCriteria = config["Post_Caption_Criteria"]
+    captionCriteria = config["Post_Caption_Blacklist"]
     caption = config["Fallback_Caption"]
     hashtags = config["Hashtags"]
     debug = config["Debug_Mode"]
@@ -40,7 +43,6 @@ for subreddit in subreddits:
     for x in range(n):
         tempList.append(subreddit)
 subreddits = tempList
-
 def image_shape(url):
     response = requests.get(url)
     if response.status_code == 200:
@@ -58,7 +60,7 @@ def delete_previous_line():
     sys.stdout.write('\x1b[2K') 
 
 currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print(f'Client started - {currentTime}')
+print(f'Client started - {timeWait} min. delay - {currentTime} ')
 print("")
 while True:
     try:
@@ -86,7 +88,7 @@ while True:
                         nsfw = post_data.get("nsfw", False)
                         image_url = post_data.get("url", api_url)
                         postCaption = post_data.get("title")
-                        print(Fore.WHITE + f"The image URL is: {image_url}", end='\r')
+                        print(Fore.WHITE + f"The image URL is: {image_url}. Testing url...", end='\r')
                         if nsfwAllowed == "True" or not nsfw:
                             if image_shape(image_url):
                                 if not ".gif" in image_url:
@@ -126,13 +128,14 @@ while True:
             if defaultCaption == "False" or any(item.lower() in postCaption.lower() for item in captionCriteria):
                 upload_data = {
                     "image_url": media_url,
-                    "caption": caption + " " + hashtags,
+                    "caption": caption + '\n\n.' + '\n\n' + hashtags,
                     "access_token": access_token
                 }
+                defaultCaption == "False"
             else:
                 upload_data = {
                 "image_url": media_url,
-                "caption": postCaption + " " + hashtags,
+                "caption": postCaption + '\n\n.' + '\n\n' + hashtags,
                 "access_token": access_token
                 }
             upload_response = requests.post(upload_url, params=upload_data)
@@ -147,10 +150,12 @@ while True:
                 print(Fore.RED + f"Error URL: {media_url}")
             else:
                 delete_previous_line()
-                if debug == "True":
-                    print(upload_json)
-                print(Fore.GREEN + f"{datetime.now().strftime('%H:%M')} - {media_url} from r/{chosenSubreddit} SUCCESSFULLY uploaded - {countattempt} Attempt(s) - {math.ceil((countsuccess/totalcountattempt)*1000)/10}% Success Rate")
-                print("")
+                if defaultCaption == "True":
+                    print(Fore.GREEN + f"{datetime.now().strftime('%H:%M')} - {media_url} from r/{chosenSubreddit} SUCCESSFULLY uploaded - {countattempt} Attempt(s) - {math.ceil((countsuccess/totalcountattempt)*1000)/10}% Success Rate")
+                    print("")
+                else:
+                    print(Fore.GREEN + f"{datetime.now().strftime('%H:%M')} - {media_url} from r/{chosenSubreddit} uploaded w/ FALLBACK CAPTION - {countattempt} Attempt(s) - {math.ceil((countsuccess/totalcountattempt)*1000)/10}%")
+                    print("")
                 if "id" in upload_json:
                     creation_id = upload_json["id"]
 
