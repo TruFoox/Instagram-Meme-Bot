@@ -42,7 +42,6 @@ A few of our currently available features:
 * Customizable wait times between posts
 * Word blacklist
 * Duplicate post prevention
-* Simple setup
 
 ## Built With
 
