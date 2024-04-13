@@ -2,7 +2,7 @@
     	"Time_to_Wait": 30,
 	"Subreddits": ["memes","meme"],
 	"Subreddit_Weights": [4,3],
-	"Blacklist": ["reddit","hitler","nazi","subreddit","r/","karma","upvote","downvote","updoot","downdoot","nsfw","sex","dick","pussy","selfie","18+","butt","anal","squirt","seggs","fag","nigg"],
+	"Blacklist": ["reddit","hitler","nazi","subreddit","r/","karma","upvote","downvote","updoot","downdoot","nsfw","sex","dick","pussy","selfie","18+","butt","anal","squirt","fag","nigg"],
 	"NSFW_Allowed": "False",
 	"API_Key": "PUT KEY HERE",
 	"User_ID": "PUT USER ID HERE",
