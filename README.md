@@ -38,7 +38,7 @@ A few of our currently available features:
 * NSFW filter
 * Configurable subreddits
 * Prioritize some subreddits over others
-* Customizable caption/hashtags
+* Automatic/Customizable caption/hashtags
 * Customizable wait times between posts
 * Word blacklist
 * Duplicate post prevention
