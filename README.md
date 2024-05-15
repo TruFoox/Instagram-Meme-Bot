@@ -102,11 +102,10 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## Authors
+## Author
 
 * **Landen Laflamme** - *Developer* - [TruFoox](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
-* **Dev Daksan** - *Creator of Meme API* - [D3vd](https://github.com/D3vd) - *Created the Meme API, which simplified programming this bot by creating an easy way to grab images off Reddit!*
 
 ## Acknowledgements
 
-* [D3vd](https://github.com/D3vd)
+* **Dev Daksan** - *Creator of Meme API* - [D3vd](https://github.com/D3vd) - *Created the Meme API, which simplified programming this bot by creating an easy way to grab images off Reddit!*
