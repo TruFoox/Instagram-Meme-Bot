@@ -127,7 +127,12 @@ while True: # Main code
                         return ""
                 else:
                     delete_previous_line()
-                    print(Fore.RED + f"Failed to fetch data. Status Code: {response.status_code} x{countattempt}", flush=True)
+                    if response.status_code == 530:
+                        print(Fore.RED + "CRITICAL ERROR - Oh no! It looks like the Meme API is down. It may take a while for it to be fixed. Try again later.")
+                        input("Press Enter to exit...")
+                        exit()
+                    else:
+                        print(Fore.RED + f"Failed to fetch data. Status Code: {response.status_code} x{countattempt}", flush=True)
                 time.sleep(1)
         chosenSubreddit = random.choice(subreddits)
         api_url = f"https://meme-api.com/gimme/{chosenSubreddit}"
