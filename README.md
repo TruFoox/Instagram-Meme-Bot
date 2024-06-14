@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/TruFoox/Instagram-Meme-Bot">
-    <img src="logo.png" alt="Logo" width="80" height="80">
+    <img src="deleteMe.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Instagram Meme Bot</h3>
