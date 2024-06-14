@@ -80,7 +80,7 @@ pip install requests colorama pillow numpy
 ```json
 "API_Key": "API KEY HERE",
 ```
-
+Further instruction for how to get your UserID will be added at a later date
 ## Usage
 
 This bot generally requires zero input from the user while it is running, but YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS!
