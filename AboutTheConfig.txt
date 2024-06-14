@@ -1,7 +1,6 @@
-
-***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
-If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelavant or otherwise contextually lacking posts. 
- !! Any version of Python 3 MUST be installed PRIOR to doing anything following this point !!
+ ***** IMPORTANT INFORMATION BEFORE YOU DO ANYTHING *****
+If you dont want to risk a ban, it is highly recommended that you keep an eye on the bot's posts. They may contain extremely offensive or against TOS content, especially if any subreddits in the config have such posts. Additionally, the bot may post nonsense, such as a person's selfie or an image that lacks context. This occurs when the subreddit contains irrelevant or otherwise contextually lacking posts. 
+ !! Python 3 MUST be installed PRIOR to doing anything following this point !!
 To allow this python script to run, you MUST put this command into a command prompt window:
 pip install requests colorama pillow numpy
 Doing so will allow the program to do what is necessary to work.
@@ -12,35 +11,30 @@ Open config.json and change these settings to your discretion:
 
 
  - Time_to_Wait -
-
 This setting is the amount of time the bot should wait before attempting another post, in minutes. Lower numbers will lead to a buildup of duplicate posts, and thus worse efficiency, faster (however this problem can be mitigated by using a large amount of subreddits with high post frequency).
 
 
- - Subreddits -
+ - Attempts_Before_Timeout -
+This setting is the amount of attempts that can be made before any given post attempt is aborted. For example, setting this to 50 will allow 50 post attempts before aborting.
 
-This setting is a list of all subreddits that the bot should retrieve top posts from. Make sure each subreddit is in quotes and seperated by a comma. Not case sensitive.
+
+ - Subreddits -
+This setting is a list of all subreddits that the bot should retrieve top posts from. Make sure each subreddit is in quotes and separated by a comma. Not case sensitive.
 
 
  - Subreddit_Weights -
-
 This setting is the odds of any given subreddit in the list being chosen to grab a post from. This setting is useful if different subreddits in the list are posted to at different rates (and thus you may get more duplicates faster for some subreddits than others) or if you simply want to post from certain subreddits more than others. Each index in the list corresponds to the same index in the "Subreddits" list.
 For example, if your Subreddits list looks like ["me_irl","memes"] and your Subreddit_Weights list looks like [10,4], there will be a 10/14 chance r/me_irl will be picked, and a 4/14 chance r/memes will be picked (the divisor is 14 because the combined total of all the numbers in Subreddit_Weights is 14).
-These numbers can be as high or as low are you want, but it must be above 0 (otherwise there will be a 0% chance of it being picked). Make sure the indexes of each weight DIRECTLY corresponds to the index of the subreddit you want it to apply to. If you want an equal chance for all subreddits, set them all to the same number.
+These numbers can be as high or as low as you want, but it must be above 0 (otherwise there will be a 0% chance of it being picked). Make sure the indexes of each weight DIRECTLY corresponds to the index of the subreddit you want it to apply to. If you want an equal chance for all subreddits, set them all to the same number.
 DO NOT PUT MORE OR LESS WEIGHTS IN THE LIST THAN SUBREDDITS. THERE MUST BE AN EQUAL AMOUNT IN BOTH LISTS
 
 
  - Blacklist -
-
 This setting is a list of all words that must not be in a post's caption in order for it to be picked. For example, if your Blacklist looks like ["skibidi","fortnite","sus"], posts containing any item in the list inside its caption can not be picked. Not case sensitive.
+Be sure not to put words too small in here. For example, putting "a" in the blacklist will block EVERY CAPTION with the letter "a" ANYWHERE in it.
 
 
- - NSFW_Allowed - 
-
-This setting is self-explanitory. Set to either "True" or "False" depending on whether or not you want to allow the bot to post images marked as NSFW.
-HIGHLY RECOMMENDED THAT YOU KEEP AT FALSE & AVOID SUBREDDITS WITH FREQUENT UNMARKED NSFW; NSFW IS AGAINST INSTAGRAM TOS
-
-
-*** - API_Key - ***
+ *** - API_Key - ***
 1. Go to this URL to generate an access token:
 https://developers.facebook.com/tools/explorer/
 2. Press the blue "Generate Access Token" button. It will ask you to log in to your facebook account, which is required. Make sure you log into whichever account owns the Instagram account you intend to use.
@@ -50,24 +44,29 @@ https://developers.facebook.com/tools/debug/accesstoken
 5. It will give you a different access token, which will last much longer than an ordinary access token. Place the result inside this section of the config
 
 
-*** - User_ID - ***
+ *** - User_ID - ***
 This setting should be changed to the account's User ID.
 
 
-- Use_Post_Caption -
+ - Use_Post_Caption -
 Set this to "True" or "False". This enables or disables using the Reddit post's caption. If disabled, it will always use the fallback caption.
 
 
-- Post_Caption_Blacklist -
+ - Post_Caption_Blacklist -
 This setting allows you to set any words you dont want included in the post's caption, and if they are included it will default to the fallback caption. This is similar to the blacklist, except it does not outright block the post entirely if it contains any keywords. It is recommended that you fill this with pronouns (Such as "I","I'm","I've") in order to prevent the bot from making claims about itself that are not true (For instance, "I had a pet bird just like this one" on a meme about birds). Not case sensitive.
 
 
-- Fallback_Caption -
+ - Fallback_Caption -
 This setting allows you to set the caption for every post/posts whose captions dont meet the criteria of Post_Caption_Blacklist, depending on whether or not you have Use_Post_Caption set to True or False
 
 
-- Hashtags -
-If you want to use hashtags, put them here. You could also place things here that you want to come after the normal caption (Such as @'s).
+ - Hashtags -
+If you want to use hashtags, put them here. You could also place things here that you want to come after the normal caption (Such as hashtags).
+
+
+ - NSFW_Allowed - 
+This setting is self-explanatory. Set to either "True" or "False" depending on whether or not you want to allow the bot to post images marked as NSFW.
+HIGHLY RECOMMENDED THAT YOU KEEP AT FALSE & AVOID SUBREDDITS WITH FREQUENT UNMARKED NSFW; NSFW IS AGAINST INSTAGRAM TOS
 
 
  - Debug_Mode -
