@@ -26,6 +26,7 @@ with open("config.json", "r") as infile: # Starts config
     caption = config["Fallback_Caption"]
     hashtags = config["Hashtags"]
     debug = config["Debug_Mode"]
+    timeout = config["Attempts_Before_Timeout"]
 
 # Establish variables & Misc
 media_url = ""
@@ -56,8 +57,7 @@ def image_shape(url): # Test image aspect ratio (Whether or not it can fit in in
         image = Image.open(BytesIO(response.content))
         width, height = image.size
         aspect_ratio = width / height
-        threshold = 1.35
-        return 1 / threshold <= aspect_ratio <= threshold
+        return 0.72 <= aspect_ratio <= 2
     else:
         delete_previous_line()
         print(Fore.RED + f"Failed to fetch the image from {url}. HTTP Status Code: {response.status_code}")
@@ -84,6 +84,7 @@ while True: # Main code
             global postCaption
             global blacklist
             global chosenSubreddit
+            global timeout
             while True:
                 countattempt += 1
                 totalcountattempt += 1
@@ -91,12 +92,12 @@ while True: # Main code
                 if debug == "True":
                     print(f"Response: {response.json()}")
                 if response.status_code == 200: # Test if request sucessful
-                    if countattempt < 50: # Ensures the code is not stuck in a loop
+                    if countattempt < timeout: # Ensures the code is not stuck in a loop
                         post_data = response.json()
                         nsfw = post_data.get("nsfw", False)
                         image_url = post_data.get("url", api_url)
                         postCaption = post_data.get("title")
-                        print(Fore.WHITE + f"The image URL is: {image_url}. Testing url...", end='\r')
+                        print(Fore.WHITE + f"Image URL: {image_url} from r/{chosenSubreddit}. Testing...", end='\r')
                         if nsfwAllowed == "True" or not nsfw: # Make sure not nsfw if nsfwAllowed is false
                             if image_shape(image_url):
                                 if not ".gif" in image_url: # Make sure not .gif
@@ -121,18 +122,18 @@ while True: # Main code
                                 print(Fore.RED + f"Image is not square. Trying again... x{countattempt}", flush=True)
                         else:
                             delete_previous_line()
-                            print(Fore.RED + f"The image is marked as NSFW. Trying again... x{countattempt}", flush=True)
+                            print(Fore.RED + f"Image is marked as NSFW. Trying again... x{countattempt}", flush=True)
                     else:
-                        print(Fore.RED + f"Something is causing a loop with {subreddit}- Fix may require reopening this program or waiting for more posts... r/{subreddit}", flush=True)
+                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Unable to find usable url in r/{subreddit}. Skipping post. r/{subreddit}", flush=True)
                         return ""
                 else:
                     delete_previous_line()
                     if response.status_code == 530:
-                        print(Fore.RED + "CRITICAL ERROR - Oh no! It looks like the Meme API is down. It may take a while for it to be fixed. Try again later.")
-                        input("Press Enter to exit...")
-                        exit()
+                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Failed to fetch data. Cloudfare HTTP Status Code: 530 - The API this program utilizes is inaccessible. Skipping post with additional 3 hour delay.")
+                        time.sleep(10800)
                     else:
-                        print(Fore.RED + f"Failed to fetch data. Status Code: {response.status_code} x{countattempt}", flush=True)
+                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Failed to fetch data. HTTP Status Code: {response.status_code} x{countattempt}", flush=True)
+                        time.sleep(5)
                 time.sleep(1)
         chosenSubreddit = random.choice(subreddits)
         api_url = f"https://meme-api.com/gimme/{chosenSubreddit}"
@@ -182,6 +183,6 @@ while True: # Main code
         time.sleep(timeWait*60) # Wait amount of time specified in config
         countattempt = 0
     except:
-        print(Fore.RED + "CRITICAL ERROR - Whoops, something is wrong! - Please check your config (Check AboutTheConfig.txt)")
+        print(Fore.RED + "CRITICAL ERROR - Whoops, something is wrong! - Please check your config (See AboutTheConfig.txt for help)")
         input("Press Enter to exit...")
         exit()
