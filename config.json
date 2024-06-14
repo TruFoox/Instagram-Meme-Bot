@@ -1,14 +1,15 @@
 {
-    	"Time_to_Wait": 30,
-	"Subreddits": ["memes","meme"],
-	"Subreddit_Weights": [4,3],
-	"Blacklist": ["reddit","hitler","nazi","subreddit","r/","karma","upvote","downvote","updoot","downdoot","nsfw","sex","dick","pussy","selfie","18+","butt","anal","squirt","fag","nigg"],
-	"NSFW_Allowed": "False",
+	"Time_to_Wait": 30,
+	"Attempts_Before_Timeout": 50,
+	"Subreddits": ["memes","meme","comedyheaven"],
+	"Subreddit_Weights": [4,3,1],
+	"Blacklist": ["reddit","hitler","nazi","politic","democrat","republican","liberal","conservative","trump","biden","r/","karma","upvote","downvote","nsfw","sex","dick","pussy","selfie","18+","butt","anal","squirt","fag","nigg"],
 	"API_Key": "PUT KEY HERE",
 	"User_ID": "PUT USER ID HERE",
 	"Use_Post_Caption": "True",
 	"Post_Caption_Blacklist": ["ive","i've","I have","Hi","I'm","I am","Im","Title","caption","idk","Fuck","Shit","Ass","Bitch","retard","republican","democrat","my","me","laid","meme","native","language"],
 	"Fallback_Caption": " ",
 	"Hashtags": "#meme #memes #funny #dankmemes #memesdaily #funnymemes #lol #humor #follow #dank #love #like #memepage #comedy #instagram #dankmeme #tiktok #anime #lmao #dailymemes #edgymemes #fun #ol #offensivememes #memestagram #bhfyp #funnymeme #instagood #shitpost #memer",
-	"Debug_Mode": "False"
+	"Debug_Mode": "False",
+	"NSFW_Allowed": "False"
 }
