@@ -104,7 +104,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Author
 
-* **Landen Laflamme** - *Developer* - [TruFoox](https://github.com/TruFoox/) - *Created, programmed, and designed this bot!*
+* **Landen Laflamme** - *Developer* - [TruFoox](https://github.com/TruFoox/) - *Created/Programmed this bot!*
 
 ## Acknowledgements
 
