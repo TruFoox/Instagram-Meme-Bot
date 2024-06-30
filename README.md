@@ -21,11 +21,12 @@
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
-* [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
+* [Help](#help)
+* [Built With](#built-with)
 * [Contributing](#contributing)
 * [Authors](#authors)
 * [Acknowledgements](#acknowledgements)
@@ -42,10 +43,6 @@ A few of our currently available features:
 * Customizable wait times between posts
 * Word blacklist
 * Duplicate post prevention
-
-## Built With
-
-Programmed entirely in Python3 using the Requests, Colorama, Pillow, and Numpy libraries
 
 ## Getting Started
 
@@ -81,10 +78,19 @@ pip install requests colorama pillow numpy
 "API_Key": "API KEY HERE",
 ```
 Further instruction for how to get your UserID will be added at a later date
+
+## Built With
+
+Programmed entirely in Python3 using the Requests, Colorama, Pillow, and Numpy libraries
+
 ## Usage
 
 This bot generally requires zero input from the user while it is running, but YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS!
 If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by keeping NSFW disabled in the config and only choosing from subreddits with infrequent unmarked NSFW.
+
+## Help
+
+IN PROGRESS
 
 ## Contributing
 
