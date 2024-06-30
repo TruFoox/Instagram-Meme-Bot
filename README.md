@@ -25,8 +25,8 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Help](#help)
 * [Built With](#built-with)
+* [Help](#help)
 * [Contributing](#contributing)
 * [Authors](#authors)
 * [Acknowledgements](#acknowledgements)
@@ -79,18 +79,18 @@ pip install requests colorama pillow numpy
 ```
 Further instruction for how to get your UserID will be added at a later date
 
-## Built With
+## Help
 
-Programmed entirely in Python3 using the Requests, Colorama, Pillow, and Numpy libraries
+IN PROGRESS
 
 ## Usage
 
 This bot generally requires zero input from the user while it is running, but YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS!
 If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by keeping NSFW disabled in the config and only choosing from subreddits with infrequent unmarked NSFW.
 
-## Help
+## Built With
 
-IN PROGRESS
+Programmed entirely in Python3 using the Requests, Colorama, Pillow, and Numpy libraries
 
 ## Contributing
 
