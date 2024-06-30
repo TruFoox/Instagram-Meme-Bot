@@ -3,7 +3,7 @@
 	"Attempts_Before_Timeout": 50,
 	"Subreddits": ["memes","meme","comedyheaven"],
 	"Subreddit_Weights": [4,3,1],
-	"Blacklist": ["reddit","hitler","nazi","politic","democrat","republican","liberal","conservative","trump","biden","r/","karma","upvote","downvote","nsfw","sex","dick","pussy","selfie","18+","butt","anal","squirt","fag","nigg"],
+	"Blacklist": ["reddit","hitler","nazi","politic","democrat","republican","liberal","conservative","trump","biden","r/","karma","upvote","downvote","nsfw","sex","dick","pussy","selfie","18+","butt","anal","fag","nigg"],
 	"API_Key": "PUT KEY HERE",
 	"User_ID": "PUT USER ID HERE",
 	"Use_Post_Caption": "True",
