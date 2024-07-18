@@ -1,4 +1,4 @@
- ######## CODE MADE BY LANDEN LAFLAMME (TRUFOOX) ########
+ ######## THIS HORRIBLE (BUT WORKING) CODE WAS MADE BY LANDEN LAFLAMME (TRUFOOX) ########
 import requests, datetime, time, json, sys, math, random, os
 from colorama import Fore, Back, Style
 from PIL import Image
@@ -50,6 +50,9 @@ for subreddit in subreddits: # Janky fix to a bug where the subreddit weights ar
         tempList.append(subreddit)
 subreddits = tempList
 random.shuffle(subreddits)
+class style:
+   BOLD = '\033[1m'
+   END = '\033[0m'
 
 def image_shape(url): # Test image aspect ratio (Whether or not it can fit in instagram)
     response = requests.get(url)
@@ -60,7 +63,7 @@ def image_shape(url): # Test image aspect ratio (Whether or not it can fit in in
         return 0.72 <= aspect_ratio <= 2
     else:
         delete_previous_line()
-        print(Fore.RED + f"Failed to fetch the image from {url}. HTTP Status Code: {response.status_code}")
+        print(Fore.RED + style.BOLD + f"{datetime.now().strftime('%H:%M')} - Failed to fetch the image from {url}. HTTP Status Code: {response.status_code}" + style.END)
         return False
 
 def delete_previous_line(): # Highly utilized, used to clear previous lines to make the command line less cluttered/more sleek
@@ -70,7 +73,7 @@ def delete_previous_line(): # Highly utilized, used to clear previous lines to m
 if debug == "True":
     print("Debug mode ENABLED")
 currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print(f'Client started - {timeWait} min. delay - {currentTime} ')
+print(f'Client started - {timeWait} min. interval - {currentTime} ')
 print("")
 while True: # Main code
     try:
@@ -124,20 +127,21 @@ while True: # Main code
                             delete_previous_line()
                             print(Fore.RED + f"Image is marked as NSFW. Trying again... x{countattempt}", flush=True)
                     else:
-                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Unable to find usable url in r/{subreddit}. Skipping post. r/{subreddit}", flush=True)
+                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Unable to find suitable url in r/{subreddit}. Skipping post. r/{subreddit}", flush=True)
+                        print("")
                         return ""
                 else:
                     delete_previous_line()
                     if response.status_code == 530:
-                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Failed to fetch data. Cloudfare HTTP Status Code: 530 - The API this program utilizes is inaccessible. Skipping post with additional 3 hour delay.")
+                        print(Fore.RED + style.BOLD + f"{datetime.now().strftime('%H:%M')} - Failed. Cloudfare HTTP Status Code: 530 - The API this program utilizes is inaccessible. Skipping post w/ +6 hour delay." + style.END)
                         time.sleep(10800)
                     else:
-                        print(Fore.RED + f"{datetime.now().strftime('%H:%M')} - Failed to fetch data. HTTP Status Code: {response.status_code} x{countattempt}", flush=True)
+                        print(Fore.RED + style.BOLD + f"{datetime.now().strftime('%H:%M')} - Failed. HTTP Status Code: {response.status_code} x{countattempt}" + style.END, flush=True)
                         time.sleep(5)
                 time.sleep(1)
         chosenSubreddit = random.choice(subreddits)
         api_url = f"https://meme-api.com/gimme/{chosenSubreddit}"
-        media_url = get_random_image_url(api_url) # Get meme
+        media_url = get_random_image_url(api_url) # Get post from API
         if not media_url == "": # There was a loop and does not continue if one occurred
             if defaultCaption == "False" or any(item.lower() in postCaption.lower() for item in captionCriteria): # Set caption to either fallback or post caption
                 upload_data = {
@@ -161,7 +165,7 @@ while True: # Main code
                 delete_previous_line()
                 if debug == "True":
                     print(upload_json)
-                print(Fore.RED + f"Error: {upload_json['error']['message']}")
+                print(Fore.RED + f"API Error: {upload_json['error']['message']}")
                 print(Fore.RED + f"Error URL: {media_url}")
             else:
                 delete_previous_line()
@@ -182,7 +186,10 @@ while True: # Main code
                     publish_json = publish_response.json()
         time.sleep(timeWait*60) # Wait amount of time specified in config
         countattempt = 0
-    except:
-        print(Fore.RED + "CRITICAL ERROR - Whoops, something is wrong! - Please check your config (See AboutTheConfig.txt for help)")
+    except Exception as error:
+        print(Fore.RED + style.BOLD + "Whoops, something is wrong! - Please check your config (See AboutTheConfig.txt for help)" + style.END)
+        print()
+        print(style.BOLD + "ERROR INFO:" + style.END, error)
+        print()
         input("Press Enter to exit...")
         exit()
