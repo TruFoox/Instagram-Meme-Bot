@@ -60,7 +60,7 @@ def image_shape(url): # Test image aspect ratio (Whether or not it can fit in in
         image = Image.open(BytesIO(response.content))
         width, height = image.size
         aspect_ratio = width / height
-        return 0.72 <= aspect_ratio <= 2
+        return 0.72 <= aspect_ratio <= 1.8
     else:
         delete_previous_line()
         print(Fore.RED + style.BOLD + f"{datetime.now().strftime('%H:%M')} - Failed to fetch the image from {url}. HTTP Status Code: {response.status_code}" + style.END)
@@ -72,8 +72,8 @@ def delete_previous_line(): # Highly utilized, used to clear previous lines to m
 
 if debug == "True":
     print("Debug mode ENABLED")
-currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print(f'Client started - {timeWait} min. interval - {currentTime} ')
+currentTime = datetime.now().strftime('%Y-%m-%d @ %H:%M:%S')
+print(f'{currentTime} - Client started - {timeWait} min. interval')
 print("")
 while True: # Main code
     try:
@@ -106,11 +106,15 @@ while True: # Main code
                                 if not ".gif" in image_url: # Make sure not .gif
                                     if not image_url in images: # Make sure not duplicate
                                         if not any(item.lower() in postCaption.lower() for item in blacklist): # Make sure caption doesnt contain blacklisted strings
-                                            images.append(image_url)
-                                            with open("used_images.json", "w") as outfile: # Add successful URL to previously used URLS list
-                                                json.dump(images, outfile)
-                                            countsuccess += 1
-                                            return image_url
+                                            if "https://i.redd.it" in image_url: # Prevents weird image URLs (This fixes an error that occurs with non-reddit image URLs)
+                                                images.append(image_url)
+                                                with open("used_images.json", "w") as outfile: # Add successful URL to previously used URLS list
+                                                    json.dump(images, outfile)
+                                                countsuccess += 1
+                                                return image_url
+                                            else:
+                                                delete_previous_line()
+                                                print(Fore.RED + f"Invalid URL. Trying again... x{countattempt}", flush=True)
                                         else:
                                             delete_previous_line()
                                             print(Fore.RED + f"Caption contains blacklisted string. Trying again... x{countattempt}", flush=True)
@@ -160,13 +164,20 @@ while True: # Main code
             upload_response = requests.post(upload_url, params=upload_data)
             upload_json = upload_response.json()
             print(Fore.WHITE)
-            test_if_close_attempt = 1/countattempt
+            #test_if_close_attempt = 1/countattempt # Re-add if u cant close or something
             if "error" in upload_json: # Error message handling
                 delete_previous_line()
                 if debug == "True":
                     print(upload_json)
-                print(Fore.RED + f"API Error: {upload_json['error']['message']}")
-                print(Fore.RED + f"Error URL: {media_url}")
+                if "Error validating access token" in upload_json['error']['message']:
+                    print(Fore.RED + f'CRITICAL ERROR: Your Instagram API access token has expired. Follow these instructions to get a new one:')
+                    print(Fore.WHITE + '\n1. Go to this URL to generate an access token (You must have created a Facebook app linked to your Instagram account):' + Fore.CYAN + '\n https://developers.facebook.com/tools/explorer/ ' + Fore.WHITE + '\n\n2. Press the blue "Generate Access Token" button. It will ask you to log in to your facebook account, which is required.\n  - Make sure you log into whichever account owns the Instagram account you intend to use. \n\n3. Go to this url and input the access token you just generated:' + Fore.CYAN + ' \n https://developers.facebook.com/tools/debug/accesstoken' + Fore.WHITE + ' \n\n4. Press the blue "Debug" button. After the new webpage loads, scroll down to the bottom and press "Extend Access Token" \n 5. It will give you a different access token, which will expire in 2 months instead of 1 hour. \n\n 5. Place the result inside the "API_Key" of the config')
+                    print()
+                    input(style.END + "Press Enter to exit...")
+                    exit()
+                else:
+                    print(Fore.RED + f"API Error: {upload_json['error']['message']}")
+                    print(Fore.RED + f"Error URL: {media_url}")
             else:
                 delete_previous_line()
                 if usedDefaultCaption == "True": # Success messages
@@ -187,9 +198,9 @@ while True: # Main code
         time.sleep(timeWait*60) # Wait amount of time specified in config
         countattempt = 0
     except Exception as error:
-        print(Fore.RED + style.BOLD + "Whoops, something is wrong! - Please check your config (See AboutTheConfig.txt for help)" + style.END)
+        print(Fore.RED + style.BOLD + "Whoops, something is wrong! - Please check your config (See Config Help.txt for help)" + style.END)
         print()
-        print(style.BOLD + "ERROR INFO:" + style.END, error)
+        print(style.BOLD + "ERROR INFO:" + style.RED, error)
         print()
-        input("Press Enter to exit...")
+        input(style.END + "Press Enter to exit...")
         exit()
