@@ -51,6 +51,7 @@ Follow ALL the directions listed below in order for the bot to function correctl
 ### Prerequisites
 
 Before anything, you need to have Python 3 downloaded and installed. [You can download the latest version of Python here](https://www.python.org/downloads/)
+
 This program uses a few libraries that might require you to download them if you haven't used them before
 
 * requests
