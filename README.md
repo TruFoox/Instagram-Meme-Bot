@@ -82,11 +82,12 @@ Further instruction for how to get your UserID will be added at a later date
 
 ## Help
 
-IN PROGRESS
+Please DM me on my [bot's Instagram page][https://www.instagram.com/dank.ai.memer/] or DM me on Discord (@TruFoox) for questions. I will both assist you there and, if the question is common enough, I will answer it here!
 
 ## Usage
 
 This bot generally requires zero input from the user while it is running, but YOU MUST MAKE SURE TO MONITOR WHAT THE BOT POSTS!
+
 If you fail to do so, the bot could post something against Instagram's TOS. This can be minimized, however, by keeping NSFW disabled in the config and only choosing from subreddits with infrequent unmarked NSFW.
 
 ## Built With
