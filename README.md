@@ -116,4 +116,4 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Acknowledgements
 
-* **Dev Daksan** - *Creator of Meme API* - [D3vd](https://github.com/D3vd) - *Created the Meme API, which simplified programming this bot by creating an easy way to grab images off Reddit!*
+* **Dev Daksan** - [D3vd](https://github.com/D3vd) - *Created the Meme API, which simplified programming this bot by creating an easy way to grab images off Reddit!*
