@@ -82,7 +82,7 @@ Further instruction for how to get your UserID will be added at a later date
 
 ## Help
 
-Please DM me on my [bot's Instagram page][https://www.instagram.com/dank.ai.memer/] or DM me on Discord (@TruFoox) for questions. I will both assist you there and, if the question is common enough, I will answer it here!
+Please DM me on my [bot's Instagram page](https://www.instagram.com/dank.ai.memer/) or DM me on Discord (@TruFoox) for questions. I will both assist you there and, if the question is common enough, I will answer it here!
 
 ## Usage
 
