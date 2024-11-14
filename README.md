@@ -16,7 +16,7 @@
   </p>
 </p>
 
-![Stargazers](https://img.shields.io/github/stars/TruFoox/Instagram-Meme-Bot?style=social) ![Issues](https://img.shields.io/github/issues/TruFoox/Instagram-Meme-Bot) 
+![Downloads](https://img.shields.io/github/downloads/TruFoox/Instagram-Meme-Bot/total) ![Stargazers](https://img.shields.io/github/stars/TruFoox/Instagram-Meme-Bot?style=social) ![Issues](https://img.shields.io/github/issues/TruFoox/Instagram-Meme-Bot) 
 
 ## Table Of Contents
 
