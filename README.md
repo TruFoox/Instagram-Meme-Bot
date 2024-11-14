@@ -46,7 +46,7 @@ A few of our currently available features:
 
 ## Getting Started
 
-Follow ALL the directions listed below in order for the bot to function correctly. See "AboutTheConfig.txt" for more information regarding the config.
+Follow ALL the directions listed below in order for the bot to function correctly. See "Config Help.txt" for more information regarding the config.
 
 ### Prerequisites
 
